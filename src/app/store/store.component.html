@@ -1,0 +1,74 @@
+<mat-card
+  class="container"
+  itemscope
+>
+  <h2>Информация</h2>
+  <mat-form-field>
+    <input
+      [(ngModel)]="store.name"
+      matInput
+      placeholder="Наименование"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      [(ngModel)]="store.address"
+      matInput
+      placeholder="Адрес"
+    >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      [(ngModel)]="store.operationMode"
+      matInput
+      placeholder="Режим работы"
+    >
+  </mat-form-field>
+  <div class="control">
+    <button
+      (click)="back()"
+      mat-button
+    >Назад</button>
+    <button
+      (click)="save()"
+      color="primary"
+      mat-flat-button
+    >Сохранить</button>
+  </div>
+</mat-card>
+<mat-card class="container">
+  <div class="header">
+    <h2>Товары</h2>
+    <button
+      (click)="openDialog()"
+      color="primary"
+      mat-flat-button
+    >Добавить</button>
+  </div>
+  <section
+    *ngFor="let item of store.products"
+    class="container"
+  >
+    <mat-form-field>
+      <input
+        [(ngModel)]="item.name"
+        matInput
+        placeholder="Наименование"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        [(ngModel)]="item.description"
+        matInput
+        placeholder="Описание"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        [(ngModel)]="item.price"
+        matInput
+        placeholder="Цена"
+      >
+    </mat-form-field>
+  </section>
+</mat-card>

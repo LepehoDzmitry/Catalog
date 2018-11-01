@@ -1,0 +1,29 @@
+<app-map (pushMap)="getMap($event)"></app-map>
+<mat-card class="container">
+  <div
+    class="header"
+    matLine
+  >
+    <h2>Магазины</h2>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="openDialog()"
+    >Добавить</button>
+  </div>
+  <mat-list role="list">
+    <mat-list-item
+      *ngFor="let item of data"
+      itemscope
+      itemtype="http://schema.org/Store"
+      role="listitem"
+      routerLink="store/{{item.id}}"
+    >
+      <h3 matLine>{{item.id+1}}) <span itemprop="name">{{item.name}}</span></h3>
+      <p
+        itemprop="address"
+        matLine
+      >{{item.address}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
